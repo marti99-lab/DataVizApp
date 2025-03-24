@@ -11,17 +11,19 @@ Create a modern, fully Python-based web application where users can either manua
 - Integrates with Plotly / ECharts / Matplotlib for visualizations
 
 ---
-
-## Project Structure (initial layout)
-
+## Project Structure (updated)
+```bash
 dataviz_app/
 ├── main.py              # Main logic to run the NiceGUI app
 ├── data/                # Stored uploaded CSV files
+│   └── example.csv      # Testfile
 ├── README.md            # Instructions for setting up and running the app
 ├── DOKUMENTATION.md     # Step-by-step development log
-├── components/          # Custom UI components (e.g., ChartViewer, CSVUploader)
-└── utils/parse_csv.py   # Helper functions for parsing and validating CSV files
-
+├── components/          # Custom UI components
+│   └── chart_viewer.py  # ChartViewer: reusable chart selection & rendering
+├── utils/               # Utility scripts
+│   └── parse_csv.py     # Helper functions for parsing and validating CSV files
+```
 ---
 
 ## Planned UI Features

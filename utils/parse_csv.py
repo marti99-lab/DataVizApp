@@ -1,3 +1,6 @@
+import pandas as pd
+from typing import Optional
+
 def parse_csv(file_path: str) -> Optional[pd.DataFrame]:
     """
     Loads and parses a CSV file.
