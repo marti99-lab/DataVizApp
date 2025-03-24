@@ -35,8 +35,13 @@ def show_preview(df: pd.DataFrame):
     if len(df.columns) >= 2:
         ChartViewer(df)
 
+ui.dark_mode()
 
-ui.label("📊 DataVizApp – Upload your CSV to visualize data")
-ui.upload(on_upload=handle_upload, label="Upload CSV File")
+with ui.column().classes('w-full items-center gap-4'):
+    ui.label("📊 DataVizApp").classes('text-2xl font-bold text-blue-600')
+    ui.label("Upload a CSV file to preview and visualize your data").classes('text-md text-gray-500')
+
+    with ui.card().classes('p-6 w-full max-w-md'):
+        ui.upload(on_upload=handle_upload, label="📁 Upload CSV File").classes('w-full')
 
 ui.run(title='DataVizApp')
