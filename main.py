@@ -10,17 +10,17 @@ UPLOAD_FOLDER = 'data'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # State holder for the uploaded DataFrame
-df_state = {'df': None}
+df_state = {'uploaded_table': None}
 
 
 def handle_upload(file):
     file_path = os.path.join(UPLOAD_FOLDER, file.name)
     with open(file_path, 'wb') as f:
         f.write(file.content.read())  # Save uploaded file
-    df = parse_csv(file_path)
-    if df is not None:
-        df_state['df'] = df
-        show_preview(df)
+    parsed_table = parse_csv(file_path)
+    if parsed_table is not None:
+        df_state['uploaded_table'] = parsed_table
+        show_preview(parsed_table)
     else:
         ui.notify('❌ Failed to read CSV: invalid format or corrupted file.', color='negative')
 
